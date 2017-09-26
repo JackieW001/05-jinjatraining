@@ -1,0 +1,7 @@
+{% extends "hello.html" %}
+
+{% block content1 %}
+this is copy
+
+{{foo}}
+{% endblock %}

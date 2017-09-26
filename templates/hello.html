@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      {% block title %}
+      title
+      {% endblock %}
+    </title>
+  </head>
+  <body>
+    <h2>Occupation Data</h2>
+    <table border="1">
+      <tr>
+	<th>Job Class</th>
+	<th>Percentage</th>
+      </tr>
+      {% for i in range(length) %}
+      <tr>
+      {% for j in range(2) %}
+      <td>
+	{{keys[j]}}
+      </td>
+      <td>
+	{{values[j]}}
+      </td>
+      {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
