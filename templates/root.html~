@@ -16,7 +16,7 @@
 	<th>Percentage</th>
       </tr>
 
-      {% for i in range(length) %}
+      {% for i in range(l) %}
       <tr>
 	<td>
 	  {{keys[i]}}

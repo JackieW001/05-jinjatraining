@@ -17,11 +17,11 @@ my_app = Flask(__name__)
 
 @my_app.route('/')
 def root():
-    return render_template('hello.html')
+    return render_template('root.html')
 
 @my_app.route('/occupations')
-def copy():
-    return render_template('occupations.html', length = len(dictionary.keys()), keys = dictionary.keys(), values = dictionary.values())
+def occupations():
+    return render_template('occupations.html', l = len(dictionary.keys()), keys = dictionary.keys(), values = dictionary.values())
 
 if __name__ == '__main__':
     my_app.debug = True
