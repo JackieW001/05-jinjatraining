@@ -11,7 +11,7 @@ with open("occupations.csv", "r") as csvfile:
 del dictionary["Job Class"]
 del dictionary["Total"]
 
-print dictionary
+print len(dictionary.keys())
 
 my_app = Flask(__name__)
 
