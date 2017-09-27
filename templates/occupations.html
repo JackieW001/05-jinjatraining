@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+
+  <!--title of page-->
   <head>
     <title>
       {% block title %}
@@ -7,27 +9,37 @@
       {% endblock %}
     </title>
   </head>
+
   <body>
+    <!--table name-->
     <h1>Occupation Data</h1>
 
     <table border="1">
+      <!--column titles-->
       <tr>
 	<th>Job Class</th>
 	<th>Percentage</th>
       </tr>
 
+      <!--goes through all occupations-->
       {% for i in range(l) %}
+      
       <tr>
+	<!--column 1 values-->
 	<td>
 	  {{keys[i]}}
 	</td>
+	
+	<!--column 2 values-->
 	<td>
 	  {{values[i]}}
 	</td>
       </tr>
+      
       {% endfor %}
     </table>
 
+    <!--randomly chosen occupation-->
     <br>
     <h3>
       Your Randomly Chosen Occupation Is: 
