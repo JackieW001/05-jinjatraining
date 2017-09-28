@@ -1,30 +1,10 @@
 from flask import Flask, render_template
-import csv
+from utils import work03
 import random
-occ_dict = {} #dictionary with job class as keys and percentages as values
-rand_occ = [] #list to randomly select occupation
 
-def create_dict():
-    #adds keys with corresponding values to dictionary
-    with open("occupations.csv", "r") as csvfile:
-        reader = csv.reader(csvfile)
-        for row in reader:
-            occ_dict[row[0]] = row[1]
-
-    #deletes first row (column titles)
-    del occ_dict["Job Class"]
-    del occ_dict["Total"]
-
-    #print len(dictionary.keys())
-
-    #appends percentage*10 number of job into a list
-    for i in occ_dict:
-        num = 0
-        while num < (float(occ_dict[i])*10):
-            rand_occ.append(i)
-            num += 1
-create_dict()
-
+occ_dict = work03.create_dict()
+rand_occ = work03.random_occ()
+    
 my_app = Flask(__name__)
 
 @my_app.route('/')

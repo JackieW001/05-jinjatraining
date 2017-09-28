@@ -1,23 +1,31 @@
 import csv
-import random
-dictionary = {}
-lit = []
 
-with open("occupations.csv", "r") as csvfile:
-    reader = csv.reader(csvfile)
-    for row in reader:
-        dictionary[row[0]] = row[1]
-    
-del dictionary["Job Class"]
-del dictionary["Total"]
-for i in dictionary:
-    num = 0
-    while num < (float(dictionary[i])*10):
-        lit.append(i)
-        num += 1
+def create_dict():
+    occ_dict = {} #dictionary with job class as keys and percentages as values
+    #adds keys with corresponding values to dictionary
+    with open("data/occupations.csv", "r") as csvfile:
+        reader = csv.reader(csvfile)
+        for row in reader:
+            occ_dict[row[0]] = row[1]
 
-#print lit
-#print type(float(dictionary["Management"]))
-#print len(lit)
-print random.choice(lit)
-#print dictionary
+    #deletes first row (column titles)
+    del occ_dict["Job Class"]
+    del occ_dict["Total"]
+
+    #print len(dictionary.keys())
+    return occ_dict
+
+def random_occ():
+    rand_occ = [] #list to randomly select occupation
+    occ_dict = create_dict()
+    #appends percentage*10 number of job into a list
+    for i in occ_dict:
+        num = 0
+        while num < (float(occ_dict[i])*10):
+            rand_occ.append(i)
+            num += 1
+    return rand_occ
+
+if __name__ == '__main__':
+    print create_dict()
+    print random_occ()
